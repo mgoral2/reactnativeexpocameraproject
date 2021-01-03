@@ -91,7 +91,7 @@ export default class CameraComponent extends React.Component {
                   onPress = { () => {
                     this.takePicture();
                     //console.log("hello from take picture");
-                    navigation.navigate('PictureScreen');
+                    this.props.navigation.navigate('PictureScreen');
                   }
                   }
                   >

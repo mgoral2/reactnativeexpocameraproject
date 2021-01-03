@@ -2,13 +2,18 @@
 
 
 import React from 'react';
+import { StyleSheet, Text, View ,TouchableOpacity,Platform, } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-function PictureScreen() {
+
+
+function PictureScreen({navigation, route}) {
 
   return (
-    <div>
-      <h1>Hi from Picture Screen</h1>
-    </div>
+    <View>
+      <Text>Hi from Picture Screen</Text>
+    </View>
   );
 }
 
