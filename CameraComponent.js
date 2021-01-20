@@ -47,8 +47,9 @@ export default class CameraComponent extends React.Component {
 
   takePicture = async () => {
     if (this.camera) {
-      let photo = await this.camera.takePictureAsync();
-
+      //let photo = await this.camera.takePictureAsync();
+      //this.setState({photo: await this.camera.takePictureAsync()});
+      return this.camera.takePictureAsync();
     }
   }
 
@@ -88,12 +89,22 @@ export default class CameraComponent extends React.Component {
                     alignItems: 'center',
                     backgroundColor: 'transparent',
                   }}
-                  onPress = { () => {
-                    this.takePicture();
-                    //console.log("hello from take picture");
-                    this.props.navigation.navigate('PictureScreen');
+
+
+
+                  onPress = {async () => {
+                    try {
+                    const photo = await this.takePicture();
+                    //this.takePicture();
+                    console.log(photo);
+                    this.props.navigation.navigate('PictureScreen', { photo });
+                  } catch (error) {
+                    console.error('an error occured while taking the picture - ${error}');
                   }
                   }
+}
+
+
                   >
                   <FontAwesome
                       name="camera"
